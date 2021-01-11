@@ -1,0 +1,322 @@
+\documentclass[12pt,b5paper]{NE_meetings}
+% two-side already included in class book, it rises an error combining caption and fltpage packages
+% CODIFICACI�
+
+%\DeclareUnicodeCharacter{FFFD}{}
+
+
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{FFFD}{}
+
+
+
+% IDIOMES
+\usepackage[catalan,italian,spanish,english]{babel}%\usepackage[english]{babel}
+%\usepackage[authoryear,round,longnamesfirst]{natbib}
+% citep (parenthesis)
+% citet (inside text)
+%\usepackage{bibentry}
+%\usepackage[backend=biber]{biblatex}
+
+%%%% BIB M
+\usepackage[backend=bibtex,style=nature]{biblatex}
+\renewbibmacro{in:}{}
+\DeclareLanguageMapping{english}{english-apa}
+\selectlanguage{english}
+%
+
+\bibliography{Paper_Ref}
+
+
+\usepackage[a4paper,  inner=3.5cm,outer=3cm,top=3.5cm,bottom=3.5cm]{geometry}
+
+%Cris   inner=3.25cm,outer=2.25cm,top=2.75cm,bottom=2.5cm
+%Giulia  inner=3.5cm,outer=3cm,top=3.5cm,bottom=3.5cm
+
+
+% PER A INCLOURE GR�FICS I EL LOGO DE LA UPF
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}
+
+% Extra packages.
+\usepackage{amsmath}
+\usepackage{dcolumn} % Align table columns on decimal point
+\usepackage{bm} % bold math
+\usepackage{amssymb, wasysym, dsfont}
+\usepackage{textcomp}
+\usepackage{pifont}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{changepage}
+\usepackage{pdfpages}
+\usepackage{graphics}
+\usepackage{caption}
+\usepackage{eurosym} % para el euro
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{ulem}
+\newenvironment{subsubsub} %%indent subsubsubsections
+  {\adjustwidth{3em}{0pt}}
+  {\endadjustwidth}
+
+\makeatletter
+
+\newcommand{\armultirow}[3]{%
+  \multicolumn{#1}{#2}{%
+    \begin{picture}(0,0)%
+      \put(0,0){%
+        \begin{tabular}[t]{@{}#2@{}}%
+          #3%
+        \end{tabular}%
+      }%
+    \end{picture}%
+  }%
+}%
+
+\newcolumntype{f}{>{$}l<{$}}
+\newcolumntype{n}{l}
+\newcolumntype{N}{>{\scriptsize}l}
+\newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
+\newcolumntype{v}[1]{>{\raggedright\hspace{0pt}}p{#1}}
+\newcolumntype{V}[1]{>{\sffamily\bfseries\raggedright\hspace{0pt}}p{#1}}
+%
+% array.sty, dcolumn.sty
+\newcolumntype{B}[1]{>{\boldmath\DC@{.}{,}{#1}}l<{\DC@end}}
+\newcolumntype{d}[1]{>{\DC@{.}{,}{#1}}l<{\DC@end}}
+\newcolumntype{i}[1]{>{\DC@{.}{,}{#1}\mathnormal\bgroup}l<{\egroup\DC@end}}
+\newcolumntype{s}[1]{>{\DC@{.}{,}{#1}\mathsf\bgroup}l<{\egroup\DC@end}}
+\makeatother
+
+% \usepackage{times}
+\usepackage[nooneline]{subfigure}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage[font=small,labelfont=bf]{caption}
+% caption in a separate page
+\usepackage[leftFloats, CaptionAfterwards]{fltpage}
+% Wrapping figures
+\usepackage{wrapfig}
+% Handling clearpages and floats (to manage proper location of floats)
+\usepackage{afterpage}
+% Environments with multiple args
+\usepackage{xparse}
+
+\usepackage{microtype}          % To avoid undesired line breaks.
+                                % It does not solve the problem
+                                % completely in cites
+\usepackage{breakcites}         % This other package does the trick
+
+\def\phrase{\begin{otherlanguage*}{nohyphenation}%
+  \dononbreakablespace
+  \dononbreakablehyphen
+  \dophrase}
+\def\dophrase#1{#1\end{otherlanguage*}}
+
+{\catcode`\ =\active
+\gdef\dononbreakablespace{\catcode`\ =\active\def {\nobreakspace}}}
+{\catcode`\-=\active
+\gdef\dononbreakablehyphen{\catcode`-=\active\def-{\nobreakhyphen}}}
+\def\nobreakhyphen{\hbox{-}\nobreak}
+
+% TikZ
+\usepackage{tikz}
+
+\usetikzlibrary{arrows,mindmap,trees,shapes,backgrounds, calc,calendar,patterns, shadings,
+  shadows,shapes.geometric,decorations.markings,arrows.meta}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots,polar,fillbetween}
+% \pgfplotsset{compat=1.5.1}
+\pgfplotsset{compat=1.11}
+
+% Framed parts
+%\usepackage[framemethod=TikZ]{mdframed}x% Framed examples
+%\mdfdefinestyle{commentstyle}{
+%hidealllines=true,
+%backgroundcolor=gray!20,innertopmargin=\topskip,splittopskip=\topskip,
+%}
+%
+%\mdtheorem[hidealllines=true,
+%backgroundcolor=gray!20,innertopmargin=\topskip,splittopskip=\topskip,
+%]{comment}{Comment}[section]
+
+
+
+%\input{mdframe_equation}%
+
+% FONTS TIMES O GARAMOND, 
+\usepackage{times}
+% \usepackage{garamond}
+% SENSE HEADINGS: NO MODIFICAR
+\pagestyle{plain}
+
+% PER A L'�NDEX DE MATURES
+\usepackage{makeidx}
+\makeindex
+
+% ESTIL DE BIBLIOGRAFIA
+%\bibliographystyle{unsrt}
+%\renewcommand{\bibname}{biblio}
+
+% This document is mostly in english
+\selectlanguage{english}
+
+% EN COMPTES DE �NDEX, LA TAULA DE CONTINGUTS ES TITULA SUMARI
+\addto\captionscatalan
+{\renewcommand{\contentsname}{\Large \sffamily Sumari}}
+
+
+\usepackage{imakeidx} % subject index and index of authors
+\makeindex
+\makeindex[title=SUBJECT INDEX,columns=2]
+%\makeindex[,title=INDEX OF AUTHORS,columns=2]
+\makeindex[name=authors,title=INDEX OF AUTHORS,columns=2]
+
+\usepackage{titlesec}
+\usepackage[dotinlabels]{titletoc}
+\usepackage{appendix}
+\usepackage{chngcntr}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+
+\makeatletter
+\titlecontents{chapter}[5pc]
+{\addvspace{1pc}\bfseries \sffamily
+  \filright}
+{\contentslabel
+  [\@chapapp\
+  \thecontentslabel]{6pc}\hspace{-0.15cm}}
+{}{\hfill\contentspage}
+[\addvspace{2pt}]
+\makeatother
+% Show only chapter/sectionentries:
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\contentsfinish
+
+\AtBeginEnvironment{subappendices}{%
+\section*{\bf \sffamily Chapter Appendices}
+\addcontentsline{toc}{section}{\hspace*{-0.7cm}\bfseries \sffamily Chapter Appendices\vspace*{0.4em}}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+}
+
+
+% Different Chapter sytle
+% Styles: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne
+\usepackage[Sonny]{fncychap}
+\usepackage{epigraph}           % For introducing epigraphs
+\setlength\epigraphwidth{11cm}
+\setlength\epigraphrule{0pt}
+
+\makeatletter
+\g@addto@macro\appendices{%
+  \renewcommand\chaptername{\sffamily Appendix}%
+  \addtocontents{toc}{\protect\renewcommand{\protect\@chapapp}{\appendixname}}%
+  \counterwithin{equation}{section}
+}
+\makeatother
+
+\addto\captionsenglish
+{\renewcommand{\contentsname}{\Large \sffamily \bfseries Contents}}
+\addto\captionsenglish
+{\renewcommand{\listfigurename}{\Large \sffamily \bfseries List of Figures}}
+
+
+%AFEGIU EN AQUESTA PART LES VOSTRES DADES
+\title{Cristina González \newline Ricardo Salvador \newline Roser Sánchez-Todo  \newline Giulio Ruffini}
+\subtitle{Project coordination team}
+\author{Coordination meetings summary}
+\thyear{2021}
+
+
+% Enumerate package
+%\usepackage{enumerate}
+\usepackage[inline]{enumitem}
+
+% Custom commands
+\newcommand{\mal}[1]{{\color{red}\underline{#1}}}
+\newcommand{\sobra}[1]{{\color{gray}#1}}
+\newcommand{\duda}[1]{{\color{blue}\textit{#1}}}
+\newcommand{\cita}[1]{{\color{red}[cita requerida]}}
+
+\usepackage{varioref}
+
+
+% Hyperrefs
+\usepackage[colorlinks=true, citecolor=black,
+linkcolor=black,linktoc=all,plainpages=true]{hyperref}
+
+\usepackage{cleveref}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{equation}{Eq.}{Eqs.}
+\crefname{table}{Tab.}{Tabs.}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\pdfstringdefDisableCommands{%
+\let\MakeUppercase\relax
+}
+
+\pagestyle{empty}
+
+\maketitle
+\frontmatter
+\pagestyle{plain}
+
+
+%%%%TAULA DE CONTINGUTS: OBLIGAT�RIA
+
+%\addcontentsline{toc}{chapter}{Contents}
+%\cleardoublepage
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+
+%%%%%% INDEX DE FIGURES; NOM�S ES POSA SI HI HA FIGURES
+
+%\cleardoublepage
+%%%%%Fa que aparegui al sumari
+%%%-------------------------------------------------------------------------
+%\addcontentsline{toc}{chapter}{List of figures}
+
+%\listoffigures
+
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{List of tables}
+%\listoftables
+%%%-------------------------------------------------------------------------
+\clearpage
+\mainmatter
+
+
+\input{Chapter1_Summaries/Global.tex}
+\input{Chapter2_PM_List_of_tasks/Global2.tex}
+\input{Chapter3_Documents/Global3.tex}
+
+\printbibliography
+\addcontentsline{toc}{chapter}{\hspace*{-2.5cm}Bibliography}
+\printindex
+\clearpage
+\backmatter
+
+\end{document}
+
+
+%NUMERACI� DE LA P�GINA EXTERIOR EXCEPTE EN LA PRIMERA P�GINA DE CADA CAP�TOL
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[RO]{\thepage}
+\fancyfoot[LE]{\thepage}
+
+
+%MUTIPLES �NDEX
+%En el pre�mbul
+%\usepackage{multind}
+%\makeindex{authors}
